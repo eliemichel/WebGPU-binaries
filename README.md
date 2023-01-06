@@ -19,3 +19,8 @@ This distribution is based instead on a concurrent implementation, namely Google
 
  - Replace Dawn's custom gclient tool with a basic Python script (no need to install `depot_tools` then).
  - Add [webgpu.hpp](https://github.com/eliemichel/WebGPU-Cpp) to also provide a common C++ API with the wgpu-native implementation.
+
+**Requirements**
+
+ - You need [Python](https://www.python.org/), both for downloading dependencies and generating the auto-generated parts of Dawn.
+ - You need the Jinja2 Python module (`pip install jinja2`).
