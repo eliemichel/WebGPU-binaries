@@ -51,6 +51,7 @@ set(WGPU_RUNTIME_LIB ${WGPU_RUNTIME_LIB} PARENT_SCOPE)
 # The application's binary must find wgpu.dll or libwgpu.so at runtime,
 # so we automatically copy it (it's called WGPU_RUNTIME_LIB in general)
 # next to the binary.
+# Also make sure that the binarie's RPATH is set to find this shared library.
 function(target_copy_webgpu_binaries Target)
 	add_custom_command(
 		TARGET ${Target} POST_BUILD
@@ -59,4 +60,5 @@ function(target_copy_webgpu_binaries Target)
 			${WGPU_RUNTIME_LIB}
 			$<TARGET_FILE_DIR:${Target}>
 	)
+	set_target_properties(${Target} PROPERTIES INSTALL_RPATH "./")
 endfunction()
