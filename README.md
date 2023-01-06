@@ -20,6 +20,12 @@ This distribution is based instead on a concurrent implementation, namely Google
  - Replace Dawn's custom gclient tool with a basic Python script (no need to install `depot_tools` then).
  - Add [webgpu.hpp](https://github.com/eliemichel/WebGPU-Cpp) to also provide a common C++ API with the wgpu-native implementation.
 
+**NB** The `webgpu.hpp` file is generated from the `webgpu.h` header that Dawn itself generates:
+
+```bash
+python generate.py -u LearnWebGPU-Code-Dawn\build\_deps\dawn-build\gen\include\dawn\webgpu.h -o LearnWebGPU-Code-Dawn\webgpu\webgpu.hpp
+```
+
 **Requirements**
 
  - You need [Python](https://www.python.org/), both for downloading dependencies and generating the auto-generated parts of Dawn.
