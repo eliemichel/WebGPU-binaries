@@ -24,3 +24,6 @@ This distribution is based instead on a concurrent implementation, namely Google
 
  - You need [Python](https://www.python.org/), both for downloading dependencies and generating the auto-generated parts of Dawn.
  - You need the Jinja2 Python module (`pip install jinja2`).
+ - Dawn generator requires that you backport the `markupsafe` module to version 2.0.1: `pip install markupsafe==2.0.1`
+
+It is recommended to create a virtual env.
