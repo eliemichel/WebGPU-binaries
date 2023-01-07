@@ -3,7 +3,7 @@ include(FetchContent)
 FetchContent_Declare(
 	dawn
 	GIT_REPOSITORY https://dawn.googlesource.com/dawn
-	GIT_TAG        a4c148fe03d7b5e61cab221574cca76cba0d5a55
+	GIT_TAG        df9d1b5c1e53e15eab337b55ee5797602d3e3f9e # 'chromium-gpu-experimental' branch at the time of writing this
 	GIT_SUBMODULES
 )
 
@@ -34,7 +34,7 @@ function(make_dawn_available)
 	set(TINT_BUILD_GLSL_WRITER OFF)
 	set(TINT_BUILD_HLSL_WRITER OFF)
 	set(TINT_BUILD_MSL_WRITER OFF)
-	set(TINT_BUILD_SPV_WRITER OFF)
+	set(TINT_BUILD_SPV_WRITER ON)
 	set(TINT_BUILD_WGSL_WRITER OFF)
 	set(TINT_BUILD_FUZZERS OFF)
 	set(TINT_BUILD_SPIRV_TOOLS_FUZZER OFF)
