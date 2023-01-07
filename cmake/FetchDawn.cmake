@@ -3,7 +3,7 @@ include(FetchContent)
 FetchContent_Declare(
 	dawn
 	GIT_REPOSITORY https://dawn.googlesource.com/dawn
-	GIT_TAG        df9d1b5c1e53e15eab337b55ee5797602d3e3f9e # 'chromium-gpu-experimental' branch at the time of writing this
+	GIT_TAG        chromium/5524
 	GIT_SUBMODULES
 )
 
