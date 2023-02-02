@@ -31,7 +31,7 @@ elseif(CMAKE_SYSTEM_NAME STREQUAL "Linux")
 
 elseif(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 
-	set(WGPU_RUNTIME_LIB ${WGPU}/macos-${ARCH}/libwgpu.dylib)
+	set(WGPU_RUNTIME_LIB ${WGPU}/macos-${ARCH}/libwgpu_native.dylib)
 	set_target_properties(
 		webgpu
 		PROPERTIES
