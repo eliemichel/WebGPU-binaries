@@ -61,4 +61,18 @@ function(target_copy_webgpu_binaries Target)
 			$<TARGET_FILE_DIR:${Target}>
 	)
 	set_target_properties(${Target} PROPERTIES INSTALL_RPATH "./")
+
+	if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
+		# Bug fix, there might be a cleaner way to do this but no INSTALL_RPATH
+		# or related target properties seem to be a solution.
+		add_custom_command(
+			TARGET ${Target} POST_BUILD
+			COMMAND
+				${CMAKE_INSTALL_NAME_TOOL} "-change"
+				"/Users/runner/work/wgpu-native/wgpu-native/target/aarch64-apple-darwin/release/deps/libwgpu_native.dylib"
+				"@executable_path/libwgpu_native.dylib"
+				"$<TARGET_FILE:${Target}>"
+			VERBATIM
+		)
+	endif()
 endfunction()
