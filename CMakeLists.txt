@@ -1,6 +1,6 @@
 set(WGPU ${CMAKE_CURRENT_SOURCE_DIR})
 if (NOT ARCH)
-	set(ARCH x86_64)
+	set(ARCH ${CMAKE_SYSTEM_PROCESSOR})
 endif()
 
 # A pre-compiled target (IMPORTED) that is a dynamically
@@ -65,11 +65,16 @@ function(target_copy_webgpu_binaries Target)
 	if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 		# Bug fix, there might be a cleaner way to do this but no INSTALL_RPATH
 		# or related target properties seem to be a solution.
+		if(ARCH STREQUAL "arm64")
+			set(ARCH_DIR aarch64)
+		else()
+			set(ARCH_DIR ${ARCH})
+		endif()
 		add_custom_command(
 			TARGET ${Target} POST_BUILD
 			COMMAND
 				${CMAKE_INSTALL_NAME_TOOL} "-change"
-				"/Users/runner/work/wgpu-native/wgpu-native/target/aarch64-apple-darwin/release/deps/libwgpu_native.dylib"
+				"/Users/runner/work/wgpu-native/wgpu-native/target/${ARCH_DIR}-apple-darwin/release/deps/libwgpu_native.dylib"
 				"@executable_path/libwgpu_native.dylib"
 				"$<TARGET_FILE:${Target}>"
 			VERBATIM
