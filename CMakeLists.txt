@@ -65,10 +65,10 @@ function(target_copy_webgpu_binaries Target)
 	if(CMAKE_SYSTEM_NAME STREQUAL "Darwin")
 		# Bug fix, there might be a cleaner way to do this but no INSTALL_RPATH
 		# or related target properties seem to be a solution.
-		if(ARCH STREQUAL "arm64")
+		if(CMAKE_SYSTEM_PROCESSOR STREQUAL "arm64")
 			set(ARCH_DIR aarch64)
 		else()
-			set(ARCH_DIR ${ARCH})
+			set(ARCH_DIR ${CMAKE_SYSTEM_PROCESSOR})
 		endif()
 		add_custom_command(
 			TARGET ${Target} POST_BUILD
