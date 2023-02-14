@@ -1,6 +1,9 @@
 set(WGPU ${CMAKE_CURRENT_SOURCE_DIR})
 if (NOT ARCH)
 	set(ARCH ${CMAKE_SYSTEM_PROCESSOR})
+	if (ARCH STREQUAL "AMD64")
+		set(ARCH "x86_64")
+	endif()
 endif()
 
 # A pre-compiled target (IMPORTED) that is a dynamically
@@ -47,6 +50,7 @@ endif()
 
 message(STATUS "Using WebGPU runtime from '${WGPU_RUNTIME_LIB}'")
 set(WGPU_RUNTIME_LIB ${WGPU_RUNTIME_LIB} PARENT_SCOPE)
+set(WGPU_RUNTIME_LIB ${WGPU_RUNTIME_LIB} CACHE INTERNAL "Path to the WebGPU library binary")
 
 # The application's binary must find wgpu.dll or libwgpu.so at runtime,
 # so we automatically copy it (it's called WGPU_RUNTIME_LIB in general)
@@ -59,6 +63,8 @@ function(target_copy_webgpu_binaries Target)
 			${CMAKE_COMMAND} -E copy_if_different
 			${WGPU_RUNTIME_LIB}
 			$<TARGET_FILE_DIR:${Target}>
+		COMMENT
+			"Copying '${WGPU_RUNTIME_LIB}' to '$<TARGET_FILE_DIR:${Target}>'..."
 	)
 	set_target_properties(${Target} PROPERTIES INSTALL_RPATH "./")
 
