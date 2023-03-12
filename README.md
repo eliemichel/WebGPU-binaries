@@ -5,11 +5,11 @@
     <img alt="Learn WebGPU Logo" src="images/webgpu-dark.svg" width="200">
   </picture>
 
-  <a href="https://github.com/eliemichel/LearnWebGPU">LearnWebGPU</a> &nbsp;|&nbsp; <a href="https://github.com/eliemichel/WebGPU-Cpp">WebGPU-C++</a> &nbsp;|&nbsp; <a href="https://github.com/eliemichel/glfw3webgpu">glfw3webgpu</a> &nbsp;|&nbsp; <a href="https://github.com/eliemichel/WebGPU-binaries">WebGPU-binaries</a>
+  <a href="https://github.com/eliemichel/LearnWebGPU">LearnWebGPU</a> &nbsp;|&nbsp; <a href="https://github.com/eliemichel/WebGPU-Cpp">WebGPU-C++</a> &nbsp;|&nbsp; <a href="https://github.com/eliemichel/glfw3webgpu">glfw3webgpu</a> &nbsp;|&nbsp; <a href="https://github.com/eliemichel/WebGPU-distribution">WebGPU-distribution</a>
 </div>
 
-WebGPU binaries
-===============
+[This repository has moved to WebGPU-distribution](https://github.com/eliemichel/WebGPU-distribution)
+==================================================
 
 This is the binary release used by the [Learn WebGPU for native C++](https://eliemichel.github.io/LearnWebGPU) tutorial series. It is a build of [wgpu-native](https://github.com/gfx-rs/wgpu-native) to which a `CMakeLists.txt` file has been added to easily integrate it to CMake projects.
 
